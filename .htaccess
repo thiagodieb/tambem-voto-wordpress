@@ -9,4 +9,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 
+RewriteEngine On
+RewriteRule "^(.*/)?\.git/" - [F,L]
+RewriteRule "^(.*/)?\.bd/" - [F,L]
+
 # END WordPress
