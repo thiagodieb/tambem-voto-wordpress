@@ -68,7 +68,20 @@ $table_prefix  = 'tv_';
  * É vivamente recomendado aos autores de temas e plugins usarem WP_DEBUG
  * no seu ambiente de desenvolvimento.
  */
+
 define('WP_DEBUG', false);
+
+define('WP_ALLOW_MULTISITE', true);
+define('MULTISITE', true);
+define('SUBDOMAIN_INSTALL', true);
+
+$base = '/';
+
+define('PATH_CURRENT_SITE', '/');
+define('SITE_ID_CURRENT_SITE', 1);
+define('BLOG_ID_CURRENT_SITE', 1);
+define('WP_DEFAULT_THEME', 'pinbin');
+
 
 /* E é tudo. Pare de editar! */
 

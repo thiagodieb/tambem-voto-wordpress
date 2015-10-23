@@ -1,3 +1,15 @@
+#protection git e database
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule "^(.*/)?\.git/" - [F,L]
+RewriteRule "^(.*/)?\.bd/" - [F,L]
+</IfModule>
+
+<Files wp-config.php>
+        Order Allow,Deny
+        Deny from all
+</Files>
+
 
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
@@ -7,10 +19,16 @@ RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
-</IfModule>
 
-RewriteEngine On
-RewriteRule "^(.*/)?\.git/" - [F,L]
-RewriteRule "^(.*/)?\.bd/" - [F,L]
+# add a trailing slash to /wp-admin
+RewriteRule ^wp-admin$ wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
+RewriteRule ^(.*\.php)$ $1 [L]
+RewriteRule . index.php [L]
+</IfModule>
 
 # END WordPress
