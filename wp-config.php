@@ -71,19 +71,54 @@ $table_prefix  = 'tv_';
 
 define('WP_DEBUG', false);
 
+/**
+ * Multisites Configuration
+ */
 define('WP_ALLOW_MULTISITE', true);
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', true);
-
-$base = '/';
+define('DOMAIN_CURRENT_SITE', 'www.tambem.voto');
 
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
+
+/**
+ * 
+ */
 define('WP_DEFAULT_THEME', 'pinbin');
+define('WP_HOME', 'http://www.tamtem.voto');
+define('WP_SITEURL', 'http://www.tambem.voto');
+
+// Limit the number of saved revisions
+define('WP_POST_REVISIONS', 5);
+define('EMPTY_TRASH_DAYS', 7);
+
+//define('WP_HTTP_BLOCK_EXTERNAL', true);
+define('WP_MEMORY_LIMIT', '128M');
 
 
-/* E é tudo. Pare de editar! */
+/**
+ * Caching configuration
+ */
+
+//define('WP_CACHE', true);      // enable the cache
+//define('ENABLE_CACHE', true);  // enable the cache
+//define('CACHE_EXPIRATION_TIME', 3600); // in seconds
+
+
+
+/**
+ * Modification path of directories plugins and wp-contents
+ */
+
+/*
+define('WP_PLUGIN_DIR', $_SERVER['DOCUMENT_ROOT'].'/path/wp-content/plugins'); 
+define('WP_PLUGIN_URL', 'http://domain.tld/path/wp-content/plugins');
+
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'].'/path/wp-content'); 
+define('WP_CONTENT_URL', 'http://domain.tld/path/wp-content');
+*/
 
 /** Caminho absoluto para a pasta do WordPress. */
 if ( !defined('ABSPATH') )
